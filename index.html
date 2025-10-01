@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPT2 Group Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="loader">
+        <div class="loader-shape"></div>
+        <div class="loader-shape"></div>
+        <div class="loader-shape"></div>
+        <div class="loader-shape"></div>
+        <div class="loader-shape"></div>
+        <div class="loader-shape"></div>
+        <div class="loader-shape"></div>
+        <div class="loader-shape"></div>
+        
+    <div class="loader-content">
+        <div class="loader-spinner"></div>
+        <h2>Loading Portfolio...</h2>
+    </div>
+    </div>
+
+    <div class="bg-shapes">
+        <!-- Large floating squares -->
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <!-- Medium floating squares -->
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <!-- Small floating squares -->
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>IPT2 Group Portfolio</h1>
+            <p class="subtitle">Meet Our Talented Team</p>
+        </header>
+
+        <div class="portfolio-grid">
+            <a href="vert.html" class="portfolio-card">
+                <div class="card-image" style="background-image: url('profile/vert.jpg');"></div>
+                <div class="card-content">
+                    <div class="content-float-box"></div>
+                    <div class="content-float-box"></div>
+                    <div class="content-float-box"></div>
+                    
+                    <div class="card-name">Angelo Vert Q. Valencia</div>
+                    <div class="card-email">angelo.valencia@gmail.com</div>
+                </div>
+            </a>
+
+            <a href="kenneth.html" class="portfolio-card">
+                <div class="card-image" style="background-image: url('profile/kenneth.jpg');"></div>
+                <div class="card-content">
+                    <div class="content-float-box"></div>
+                    <div class="content-float-box"></div>
+                    <div class="content-float-box"></div>
+                    
+                    <div class="card-name">Mark Kenneth Facun</div>
+                    <div class="card-email">mark.kennethfacun@gmail.com</div>
+                </div>
+            </a>
+
+            <a href="arvin.html" class="portfolio-card">
+                <div class="card-image" style="background-image: url('profile/arvin.jpg');"></div>
+                <div class="card-content">
+                    <div class="content-float-box"></div>
+                    <div class="content-float-box"></div>
+                    <div class="content-float-box"></div>
+                    
+                    <div class="card-name">Arvin C. Coronel</div>
+                    <div class="card-email">arvin.coronel@gmail.com</div>
+                </div>
+            </a>
+
+            <a href="elmer.html" class="portfolio-card">
+                <div class="card-image" style="background-image: url('profile/elmer.jpg');"></div>
+                <div class="card-content">
+                    <div class="content-float-box"></div>
+                    <div class="content-float-box"></div>
+                    <div class="content-float-box"></div>
+                    
+                    <div class="card-name">Elmerson G. Sta. Cruz</div>
+                    <div class="card-email">elmerson.stacruz@gmail.com</div>
+                </div>
+            </a>
+
+            <a href="prince.html" class="portfolio-card">
+                <div class="card-image" style="background-image: url('profile/prince.jpg');"></div>
+                <div class="card-content">
+                    <div class="content-float-box"></div>
+                    <div class="content-float-box"></div>
+                    <div class="content-float-box"></div>
+                    
+                    <div class="card-name">Prince Charles Arman S. Fabros</div>
+                    <div class="card-email">prince.fabros@gmail.com</div>
+                </div>
+            </a>
+
+            <a href="rommel.html" class="portfolio-card">
+                <div class="card-image" style="background-image: url('profile/rommel.jpg');"></div>
+                <div class="card-content">
+                    <div class="content-float-box"></div>
+                    <div class="content-float-box"></div>
+                    <div class="content-float-box"></div>
+                    
+                    <div class="card-name">Rommel F. Ambrocio</div>
+                    <div class="card-email">rommel.ambrocio@gmail.com</div>
+                </div>
+            </a>
+
+            <a href="micheal.html" class="portfolio-card">
+                <div class="card-image" style="background-image: url('profile/micheal.jpg');"></div>
+                <div class="card-content">
+                    <div class="content-float-box"></div>
+                    <div class="content-float-box"></div>
+                    <div class="content-float-box"></div>
+                    
+                    <div class="card-name">Micheal Justin M. Paras</div>
+                    <div class="card-email">michealjustinmparas@gmail.com</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="scroll-indicator"></div>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
+            });
+        });
+
+        // Hide scroll indicator on scroll
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            const indicator = document.querySelector('.scroll-indicator');
+            if (window.scrollY > 100) {
+                indicator.style.opacity = '0';
+            } else {
+                indicator.style.opacity = '0.6';
+            }
+        });
+
+        // Add ripple effect on click - red ripple
+        document.querySelectorAll('.portfolio-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                const ripple = document.createElement('div');
+                ripple.style.position = 'absolute';
+                ripple.style.width = '20px';
+                ripple.style.height = '20px';
+                ripple.style.background = 'rgba(220, 20, 60, 0.5)';
+                ripple.style.borderRadius = '50%';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s ease-out';
+                ripple.style.left = e.pageX - this.offsetLeft + 'px';
+                ripple.style.top = e.pageY - this.offsetTop + 'px';
+                
+                this.style.position = 'relative';
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(20);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
