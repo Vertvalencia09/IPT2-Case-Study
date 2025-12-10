@@ -6,6 +6,49 @@
     <title>Personal Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* API Section Styles */
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .color-card {
+            border-radius: 15px;
+            padding: 100px 20px 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .color-card:hover {
+            transform: translateY(-5px);
+        }
+        .color-name {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #333;
+        }
+        .color-hex {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        .refresh-btn {
+            background: linear-gradient(135deg, #e63946 0%, #f77f00 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+        .refresh-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
     <div class="bg-shapes">
@@ -18,11 +61,12 @@
 
     <nav>
         <div class="nav-container">
-            <a href="#personal-info" class="nav-link active">Personal Info</a>
+            <a href="#personal-info" class="nav-link">Personal Info</a>
             <a href="#skills" class="nav-link">Skills</a>
             <a href="#education" class="nav-link">Education</a>
             <a href="#hobbies" class="nav-link">Hobbies</a>
             <a href="#contact" class="nav-link">Contact</a>
+            <a href="#api-integration" class="nav-link">API Integration</a>
         </div>
     </nav>
 
@@ -160,6 +204,7 @@
                     <div class="hobby-name">Reading Life Studies</div>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- Contact Section -->
@@ -168,7 +213,7 @@
             <h2 class="section-title">Get In Touch</h2>
             
             <div class="motto-box">
-                <div class="motto-text">“Works hards, to end the poor cycle.”</div>
+                <div class="motto-text">"Works hards, to end the poor cycle."</div>
             </div>
 
             <div class="contact-grid">
@@ -223,10 +268,78 @@
         </div>
     </section>
 
+    <!-- API Integration Section -->
+    <section id="api-integration" class="section">
+        <div class="content-box">
+            <h2 class="section-title">API Integration</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 10px;">
+                <strong>🎨 Color Palette Generator</strong>
+            </p>
+            <p style="text-align: center; color: #999; font-size: 0.9em; margin-bottom: 30px;">
+                As a graphic designer, I use the Color API to generate inspiring color palettes for my design projects. This free API provides color schemes with hex codes and names.
+            </p>
+
+            <div style="text-align: center;">
+                <button onclick="loadColors()" class="refresh-btn">
+                    🔄 Generate New Palette
+                </button>
+            </div>
+
+            <div id="color-container" class="color-palette">
+                <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #999;">
+                    Click "Generate New Palette" to see colors
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                <h3 style="color: #e63946; margin-bottom: 10px;">📚 About This API</h3>
+                <p style="color: #666; line-height: 1.6;">
+                    <strong>API Name:</strong> The Color API<br>
+                    <strong>Endpoint:</strong> https://www.thecolorapi.com<br>
+                    <strong>Purpose:</strong> Generates harmonious color schemes for design projects<br>
+                    <strong>Features:</strong> Color names, hex codes, RGB values, and color theory modes<br>
+                    <strong>Cost:</strong> 100% Free, no API key required
+                </p>
+            </div>
+        </div>
+    </section>
+
     <a href="index.html" class="back-button" title="Back to Main Portfolio">
         <i class="fas fa-home"></i>
     </a>
 
     <script src="script.js"></script>
+    <script>
+        async function loadColors() {
+            const container = document.getElementById('color-container');
+            container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px;"><i class="fas fa-spinner fa-spin" style="font-size: 2em; color: #e63946;"></i><p style="margin-top: 10px; color: #666;">Loading colors...</p></div>';
+
+            try {
+                // Generate random hex color
+                const randomHex = Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+                const response = await fetch(`https://www.thecolorapi.com/scheme?hex=${randomHex}&mode=monochrome&count=5`);
+                const data = await response.json();
+
+                let html = '';
+                data.colors.forEach(color => {
+                    html += `
+                        <div class="color-card" style="background: ${color.hex.value};">
+                            <div class="color-name">${color.name.value}</div>
+                            <div class="color-hex">${color.hex.value}</div>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = html;
+            } catch (error) {
+                container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #e63946;">Error loading colors. Please try again.</div>';
+            }
+        }
+
+        // Load colors on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadColors();
+        });
+    </script>
 </body>
 </html>
