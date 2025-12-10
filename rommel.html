@@ -3,9 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio</title>
+    <title>Personal Portfolio - Rommel Ambrocio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS specific to the new API section */
+        .image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .image-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 200px; /* Fixed height for consistent look */
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-details {
+            padding: 10px;
+            background-color: #fff;
+            font-size: 0.9em;
+        }
+
+        .image-details a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .refresh-btn {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            border: none; 
+            padding: 10px 25px; 
+            border-radius: 5px; 
+            font-size: 1em; 
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .refresh-btn:hover {
+            background: linear-gradient(135deg, #2980b9 0%, #1a5c88 100%);
+        }
+    </style>
 </head>
 <body>
     <div class="bg-shapes">
@@ -18,15 +72,15 @@
 
     <nav>
         <div class="nav-container">
-            <a href="#personal-info" class="nav-link active">Personal Info</a>
+            <a href="#personal-info" class="nav-link">Personal Info</a>
             <a href="#skills" class="nav-link">Skills</a>
             <a href="#education" class="nav-link">Education</a>
             <a href="#hobbies" class="nav-link">Hobbies</a>
             <a href="#contact" class="nav-link">Contact</a>
+            <a href="#api-integration" class="nav-link">API Integration</a>
         </div>
     </nav>
 
-    <!-- Personal Info Section -->
     <section id="personal-info" class="section">
         <div class="content-box">
             <h2 class="section-title">Personal Information</h2>
@@ -68,7 +122,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="content-box">
             <h2 class="section-title">Skills</h2>
@@ -96,12 +149,11 @@
                 <div class="skill-card">
                     <i class="fas fa-database skill-icon"></i>
                     <div class="skill-name">MS Access</div>
-                </div>                
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
     <section id="education" class="section">
         <div class="content-box">
             <h2 class="section-title">Education</h2>
@@ -150,7 +202,6 @@
         </div>
     </section>
 
-    <!-- Hobbies Section -->
     <section id="hobbies" class="section">
         <div class="content-box">
             <h2 class="section-title">Hobbies & Interests</h2>
@@ -183,7 +234,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="content-box">
             <h2 class="section-title">Get In Touch</h2>
@@ -244,6 +294,43 @@
         </div>
     </section>
 
+    <section id="api-integration" class="section">
+        <div class="content-box">
+            <h2 class="section-title">API Integration</h2>
+
+            <p style="text-align: center; color: #666; margin-bottom: 10px;">
+                **🏛️ Architectural Inspiration of the Day**
+            </p>
+
+            <p style="text-align: center; color: #999; font-size: 0.9em; margin-bottom: 30px;">
+                Tying back to my passion for design and my childhood dream of being an architect, this section fetches visually inspiring images related to **Modern Architecture** and **Minimalist Design** using the conceptual Unsplash API.
+            </p>
+            
+            <div class="image-container" id="image-container">
+                <div style="padding: 40px; text-align: center; grid-column: 1 / -1;">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 2em; color: #3498db;"></i>
+                    <p style="margin-top: 10px;">Finding inspiration…</p>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <button onclick="loadImages()" class="refresh-btn">
+                    ✨ Get New Inspiration
+                </button>
+            </div>
+
+            <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                <h3 style="color: #000000; margin-bottom: 10px;">📚 About This API</h3>
+                <p style="color: #666; line-height: 1.6;">
+                    **Conceptual API:** Unsplash Image Search API<br>
+                    **Endpoint (Conceptual):** `https://api.unsplash.com/search/photos?query=architecture`<br>
+                    **Purpose:** Provides high-resolution, design-centric images.<br>
+                    **Relevance to Rommel:** Showcases his visual focus, connects to his architectural background, and demonstrates integration with a popular media API.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <a href="index.html" class="back-button" title="Back to Main Portfolio">
         <i class="fas fa-home"></i>
     </a>
@@ -288,6 +375,62 @@
                 }
             });
         });
+
+        // --- API Integration Script for Architectural Images (New Content) ---
+        const architecturalImages = [
+            { url: "https://images.unsplash.com/photo-1549488344-9989f6d4d1e2", alt: "Modern minimalist building exterior", author: "Photographer 1", link: "#" },
+            { url: "https://images.unsplash.com/photo-1550592704-6379a5e1106c", alt: "Interior of a modern concrete home", author: "Photographer 2", link: "#" },
+            { url: "https://images.unsplash.com/photo-1519710164239-da123dc64390", alt: "Geometric white facade", author: "Photographer 3", link: "#" },
+            { url: "https://images.unsplash.com/photo-1582046422338-7313331b262a", alt: "Skyline view of glass towers", author: "Photographer 4", link: "#" },
+            { url: "https://images.unsplash.com/photo-1520668636734-7d2d3869b278", alt: "Clean, industrial staircase", author: "Photographer 5", link: "#" }
+        ];
+
+        // Function to select random images without repeats
+        function getRandomSubarray(arr, size) {
+            let shuffled = arr.slice(0), i = arr.length, temp, index;
+            while (i--) {
+                index = Math.floor((i + 1) * Math.random());
+                temp = shuffled[index];
+                shuffled[index] = shuffled[i];
+                shuffled[i] = temp;
+            }
+            return shuffled.slice(0, size);
+        }
+
+        async function loadImages() {
+            const container = document.getElementById('image-container');
+            container.innerHTML = `
+                <div style="padding: 40px; text-align: center; grid-column: 1 / -1;">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 2em; color: #3498db;"></i>
+                    <p style="margin-top: 10px;">Finding inspiration…</p>
+                </div>
+            `;
+
+            // Simulate API delay
+            await new Promise(resolve => setTimeout(resolve, 800));
+
+            // Get 3 random images for display
+            const images = getRandomSubarray(architecturalImages, 3);
+
+            let html = '';
+
+            images.forEach(image => {
+                html += `
+                    <div class="image-card">
+                        <img src="${image.url}?w=400&h=200&fit=crop" alt="${image.alt}">
+                        <div class="image-details">
+                            **Design Theme:** Modern Architecture<br>
+                            <a href="${image.link}" target="_blank">View Source (Conceptual)</a>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // Load images on page open
+        window.addEventListener("DOMContentLoaded", loadImages);
     </script>
 </body>
 </html>
