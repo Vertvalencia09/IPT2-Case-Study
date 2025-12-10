@@ -6,27 +6,76 @@
     <title>Personal Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .country-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .country-card:hover { transform: translateY(-5px); }
+        .country-flag {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .country-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .country-capital {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .region-selector {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .region-btn {
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        .region-btn:hover { transform: scale(1.05); }
+        .region-btn.active {
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);
+        }
+    </style>
 </head>
 <body>
     <div class="bg-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
+        <div class="shape"></div><div class="shape"></div><div class="shape"></div><div class="shape"></div><div class="shape"></div>
     </div>
 
     <nav>
         <div class="nav-container">
-            <a href="#personal-info" class="nav-link active">Personal Info</a>
+            <a href="#personal-info" class="nav-link">Personal Info</a>
             <a href="#skills" class="nav-link">Skills</a>
             <a href="#education" class="nav-link">Education</a>
             <a href="#hobbies" class="nav-link">Hobbies</a>
             <a href="#contact" class="nav-link">Contact</a>
+            <a href="#api-integration" class="nav-link">API Integration</a>
         </div>
     </nav>
 
-    <!-- Personal Info Section -->
     <section id="personal-info" class="section">
         <div class="content-box">
             <h2 class="section-title">Personal Information</h2>
@@ -37,213 +86,136 @@
                     <div class="profile-title">Frontend Developer and UI/UX Designer</div>
                 </div>
             </div>
-            <div class="info-item">
-                <span class="info-label">Full Name:</span>
-                <span>Micheal Justin M. Paras</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Date of Birth:</span>
-                <span>September 9, 2002</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Age:</span>
-                <span>23 Years Old</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Nationality:</span>
-                <span>Filipino</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Address:</span>
-                <span>Mabilog, Concepcion, Tarlac</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Languages:</span>
-                <span>Filipino</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">About Me:</span>
-                <span>Hey there! I'm Micheal Justin Paras, a 4th Year College student with a course of Information Technology specializing in front-end development. While my coding journey is ongoing, I get to put what I've learned into practice as a small business owner. The experience of managing my own business gives me a unique perspective on client needs and the importance of delivering a clean, user-friendly interface. It's an exciting intersection of my studies and my entrepreneurial passion.</span>
-            </div>
+            <div class="info-item"><span class="info-label">Full Name:</span><span>Micheal Justin M. Paras</span></div>
+            <div class="info-item"><span class="info-label">Date of Birth:</span><span>September 9, 2002</span></div>
+            <div class="info-item"><span class="info-label">Age:</span><span>23 Years Old</span></div>
+            <div class="info-item"><span class="info-label">Nationality:</span><span>Filipino</span></div>
+            <div class="info-item"><span class="info-label">Address:</span><span>Mabilog, Concepcion, Tarlac</span></div>
+            <div class="info-item"><span class="info-label">Languages:</span><span>Filipino</span></div>
+            <div class="info-item"><span class="info-label">About Me:</span><span>Hey there! I'm Micheal Justin Paras, a 4th Year College student with a course of Information Technology specializing in front-end development. While my coding journey is ongoing, I get to put what I've learned into practice as a small business owner. The experience of managing my own business gives me a unique perspective on client needs and the importance of delivering a clean, user-friendly interface. It's an exciting intersection of my studies and my entrepreneurial passion.</span></div>
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="content-box">
             <h2 class="section-title">Skills</h2>
             <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fab fa-html5 skill-icon html"></i>
-                    <div class="skill-name">HTML</div>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-css3-alt skill-icon css"></i>
-                    <div class="skill-name">CSS</div>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-php skill-icon php"></i>
-                    <div class="skill-name">PHP</div>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-figma skill-icon figma"></i>
-                    <div class="skill-name">UI/UX Design</div>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-database skill-icon"></i>
-                    <div class="skill-name">mySQL</div>
-                </div>
+                <div class="skill-card"><i class="fab fa-html5 skill-icon html"></i><div class="skill-name">HTML</div></div>
+                <div class="skill-card"><i class="fab fa-css3-alt skill-icon css"></i><div class="skill-name">CSS</div></div>
+                <div class="skill-card"><i class="fab fa-php skill-icon php"></i><div class="skill-name">PHP</div></div>
+                <div class="skill-card"><i class="fab fa-figma skill-icon figma"></i><div class="skill-name">UI/UX Design</div></div>
+                <div class="skill-card"><i class="fas fa-database skill-icon"></i><div class="skill-name">mySQL</div></div>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
     <section id="education" class="section">
         <div class="content-box">
             <h2 class="section-title">Education</h2>
             <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="education-card">
-                        <div class="education-degree">Bachelor of Science in Information Technology</div>
-                        <div class="education-school">Tarlac State University</div>
-                        <div class="education-year">2022 - Present (4th Year)</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="education-card">
-                        <div class="education-degree">Senior High School</div>
-                        <div class="education-school">Tarlac National High School</div>
-                        <div class="education-year">2018 - 2020</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="education-card">
-                        <div class="education-degree">Junior High School</div>
-                        <div class="education-school">Tarlac National High School</div>
-                        <div class="education-year">2014 - 2017</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="education-card">
-                        <div class="education-degree">Elementary</div>
-                        <div class="education-school">Mabilog Elementary School</div>
-                        <div class="education-year">2008 - 2014</div>
-                    </div>
-                </div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="education-card"><div class="education-degree">Bachelor of Science in Information Technology</div><div class="education-school">Tarlac State University</div><div class="education-year">2022 - Present (4th Year)</div></div></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="education-card"><div class="education-degree">Senior High School</div><div class="education-school">Tarlac National High School</div><div class="education-year">2018 - 2020</div></div></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="education-card"><div class="education-degree">Junior High School</div><div class="education-school">Tarlac National High School</div><div class="education-year">2014 - 2017</div></div></div>
+                <div class="timeline-item"><div class="timeline-dot"></div><div class="education-card"><div class="education-degree">Elementary</div><div class="education-school">Mabilog Elementary School</div><div class="education-year">2008 - 2014</div></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Hobbies Section -->
     <section id="hobbies" class="section">
         <div class="content-box">
             <h2 class="section-title">Hobbies & Interests</h2>
             <div class="hobbies-grid">
-                <div class="hobby-card">
-                    <div class="hobby-icon"><i class="fas fa-code"></i></div>
-                    <div class="hobby-name">Coding (Most preferred Front End Dev.)</div>
-                </div>
-                <div class="hobby-card">
-                    <div class="hobby-icon"><i class="fas fa-shoe-prints"></i></div>
-                    <div class="hobby-name">Sneaker Reselling</div>
-                </div>
-                <div class="hobby-card">
-                    <div class="hobby-icon"><i class="fas fa-shoe-prints"></i></div>
-                    <div class="hobby-name">Shoe Collector</div>
-                </div>
-                <div class="hobby-card">
-                    <div class="hobby-icon"><i class="fas fa-utensils"></i></div>
-                    <div class="hobby-name">Food Business</div>
-                </div>
-                <div class="hobby-card">
-                    <div class="hobby-icon"><i class="fas fa-plane"></i></div>
-                    <div class="hobby-name">Travel</div>
-                </div>
-                <div class="hobby-card">
-                    <div class="hobby-icon"><i class="fas fa-fish"></i></div>
-                    <div class="hobby-name">Fishing</div>
-                </div>
-                <div class="hobby-card">
-                    <div class="hobby-icon"><i class="fas fa-cubes"></i></div>
-                    <div class="hobby-name">Building Lego's</div>
-                </div>
-                <div class="hobby-card">
-                    <div class="hobby-icon"><i class="fas fa-bullseye"></i></div>
-                    <div class="hobby-name">Practice Field Shooting</div>
-                </div>
+                <div class="hobby-card"><div class="hobby-icon"><i class="fas fa-code"></i></div><div class="hobby-name">Coding (Most preferred Front End Dev.)</div></div>
+                <div class="hobby-card"><div class="hobby-icon"><i class="fas fa-shoe-prints"></i></div><div class="hobby-name">Sneaker Reselling</div></div>
+                <div class="hobby-card"><div class="hobby-icon"><i class="fas fa-shoe-prints"></i></div><div class="hobby-name">Shoe Collector</div></div>
+                <div class="hobby-card"><div class="hobby-icon"><i class="fas fa-utensils"></i></div><div class="hobby-name">Food Business</div></div>
+                <div class="hobby-card"><div class="hobby-icon"><i class="fas fa-plane"></i></div><div class="hobby-name">Travel</div></div>
+                <div class="hobby-card"><div class="hobby-icon"><i class="fas fa-fish"></i></div><div class="hobby-name">Fishing</div></div>
+                <div class="hobby-card"><div class="hobby-icon"><i class="fas fa-cubes"></i></div><div class="hobby-name">Building Lego's</div></div>
+                <div class="hobby-card"><div class="hobby-icon"><i class="fas fa-bullseye"></i></div><div class="hobby-name">Practice Field Shooting</div></div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="content-box">
             <h2 class="section-title">Get In Touch</h2>
-            
-            <div class="motto-box">
-                <div class="motto-text">“Failure is not the opposite of Success.”</div>
-            </div>
-
+            <div class="motto-box"><div class="motto-text">"Failure is not the opposite of Success."</div></div>
             <div class="contact-grid">
-                <a href="tel:+639635157011" class="contact-item">
-                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                    <div class="contact-info">
-                        <div class="contact-label">Phone</div>
-                        <div class="contact-value">+63 963 515 7011</div>
-                    </div>
-                </a>
-
-                <a href="mailto:michealjustinmparas@gmail.com" class="contact-item">
-                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                    <div class="contact-info">
-                        <div class="contact-label">Email</div>
-                        <div class="contact-value">michealjustinmparas@gmail.com</div>
-                    </div>
-                </a>
-
-                <a href="https://www.facebook.com/share/1Hta9tXGvF/" target="_blank" class="contact-item">
-                    <div class="contact-icon"><i class="fab fa-facebook"></i></div>
-                    <div class="contact-info">
-                        <div class="contact-label">Facebook</div>
-                        <div class="contact-value">Micheal Justin Paras</div>
-                    </div>
-                </a>
-
-                <a href="https://www.facebook.com/share/1Hta9tXGvF/" target="_blank" class="contact-item">
-                    <div class="contact-icon"><i class="fab fa-facebook-messenger"></i></div>
-                    <div class="contact-info">
-                        <div class="contact-label">Messenger</div>
-                        <div class="contact-value">Chat with me</div>
-                    </div>
-                </a>
-
-                <a href="https://www.tiktok.com/@mj.paras?_t=ZS-90B6oidCORE&_r=1" target="_blank" class="contact-item">
-                    <div class="contact-icon"><i class="fab fa-tiktok"></i></div>
-                    <div class="contact-info">
-                        <div class="contact-label">TikTok</div>
-                        <div class="contact-value">@mj.paras</div>
-                    </div>
-                </a>
-
-                <a href="https://www.instagram.com/mjparass?igsh=MTMyOWlpajZibXo3cw==" target="_blank" class="contact-item">
-                    <div class="contact-icon"><i class="fab fa-instagram"></i></div>
-                    <div class="contact-info">
-                        <div class="contact-label">Instagram</div>
-                        <div class="contact-value">@mjparass</div>
-                    </div>
-                </a>
+                <a href="tel:+639635157011" class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div class="contact-info"><div class="contact-label">Phone</div><div class="contact-value">+63 963 515 7011</div></div></a>
+                <a href="/cdn-cgi/l/email-protection#2f42464c474a4e43455a5c5b4641425f4e5d4e5c6f48424e4643014c4042" class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-info"><div class="contact-label">Email</div><div class="contact-value"><span class="__cf_email__" data-cfemail="573a3e343f32363b3d2224233e393a273625362417303a363e3b7934383a">[email&#160;protected]</span></div></div></a>
+                <a href="https://www.facebook.com/share/1Hta9tXGvF/" target="_blank" class="contact-item"><div class="contact-icon"><i class="fab fa-facebook"></i></div><div class="contact-info"><div class="contact-label">Facebook</div><div class="contact-value">Micheal Justin Paras</div></div></a>
+                <a href="https://www.facebook.com/share/1Hta9tXGvF/" target="_blank" class="contact-item"><div class="contact-icon"><i class="fab fa-facebook-messenger"></i></div><div class="contact-info"><div class="contact-label">Messenger</div><div class="contact-value">Chat with me</div></div></a>
+                <a href="https://www.tiktok.com/@mj.paras?_t=ZS-90B6oidCORE&_r=1" target="_blank" class="contact-item"><div class="contact-icon"><i class="fab fa-tiktok"></i></div><div class="contact-info"><div class="contact-label">TikTok</div><div class="contact-value">@mj.paras</div></div></a>
+                <a href="https://www.instagram.com/mjparass?igsh=MTMyOWlpajZibXo3cw==" target="_blank" class="contact-item"><div class="contact-icon"><i class="fab fa-instagram"></i></div><div class="contact-info"><div class="contact-label">Instagram</div><div class="contact-value">@mjparass</div></div></a>
             </div>
         </div>
     </section>
 
-    <a href="index.html" class="back-button" title="Back to Main Portfolio">
-        <i class="fas fa-home"></i>
-    </a>
+    <section id="api-integration" class="section">
+        <div class="content-box">
+            <h2 class="section-title">API Integration</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 10px;"><strong>✈️ Travel Destinations Explorer</strong></p>
+            <p style="text-align: center; color: #999; font-size: 0.9em; margin-bottom: 20px;">
+                As someone passionate about travel, I use the REST Countries API to explore countries around the world. This free API provides country flags, capitals, and regional information.
+            </p>
+            <div class="region-selector">
+                <button class="region-btn active" onclick="loadCountries('Asia')">Asia</button>
+                <button class="region-btn" onclick="loadCountries('Europe')">Europe</button>
+                <button class="region-btn" onclick="loadCountries('Americas')">Americas</button>
+                <button class="region-btn" onclick="loadCountries('Africa')">Africa</button>
+                <button class="region-btn" onclick="loadCountries('Oceania')">Oceania</button>
+            </div>
+            <div class="countries-grid" id="countries-container">
+                <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 2em; color: #00b09b;"></i>
+                    <p style="margin-top: 10px; color: #666;">Loading countries...</p>
+                </div>
+            </div>
+            <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                <h3 style="color: #000000; margin-bottom: 10px;">📚 About This API</h3>
+                <p style="color: #666; line-height: 1.6;">
+                    <strong>API Name:</strong> REST Countries API<br>
+                    <strong>Endpoint:</strong> https://restcountries.com<br>
+                    <strong>Purpose:</strong> Provides comprehensive country information<br>
+                    <strong>Features:</strong> Flags, capitals, population, regions, currencies<br>
+                    <strong>Cost:</strong> 100% Free, no API key required
+                </p>
+            </div>
+        </div>
+    </section>
 
-    <script src="script.js"></script>
+    <a href="index.html" class="back-button" title="Back to Main Portfolio"><i class="fas fa-home"></i></a>
+    <script>
+        async function loadCountries(region = 'Asia') {
+            const container = document.getElementById('countries-container');
+            container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px;"><i class="fas fa-spinner fa-spin" style="font-size: 2em; color: #00b09b;"></i><p style="margin-top: 10px; color: #666;">Loading countries...</p></div>';
+            
+            document.querySelectorAll('.region-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            try {
+                const response = await fetch(`https://restcountries.com/v3.1/region/${region}?fields=name,flags,capital`);
+                const data = await response.json();
+                
+                let html = '';
+                data.slice(0, 12).forEach(country => {
+                    html += `
+                        <div class="country-card">
+                            <img src="${country.flags.png}" class="country-flag" alt="${country.name.common} flag">
+                            <div class="country-name">${country.name.common}</div>
+                            <div class="country-capital">Capital: ${country.capital?.[0] || 'N/A'}</div>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+            } catch (error) {
+                container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #e63946;">Error loading countries. Please try again.</div>';
+            }
+        }
+        
+        window.addEventListener('DOMContentLoaded', () => loadCountries('Asia'));
+    </script>
 </body>
 </html>
